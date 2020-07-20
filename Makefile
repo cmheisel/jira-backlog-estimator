@@ -1,5 +1,11 @@
-.venv:
+.venv: requirements-frozen.txt
 	virtualenv .venv
+	./.venv/bin/pip install -r requirements-frozen.txt
+
+.PHONY: refreeze
+refreeze:
+	rm requirements-frozen.txt
+	make requirements-frozen.txt
 
 
 requirements-frozen.txt:
@@ -15,9 +21,11 @@ requirements-frozen.txt:
 build: requirements-frozen.txt
 	docker-compose build
 
+.PHONY: run
 run:
 	docker-compose -f docker-compose.yml up
 
+.PHONY: enter
 enter:
 	 docker-compose -f docker-compose.yml run --rm estimator /bin/bash
 

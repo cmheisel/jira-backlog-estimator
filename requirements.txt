@@ -1,8 +1,0 @@
-django==3.0.8
-pytest==5.4.3
-pytest-cov==2.1.0
-pytest-mock==3.1.1
-requests-mock==1.8.0
-flake8==3.8.3
-
-#python-dateutil==2.6.0
